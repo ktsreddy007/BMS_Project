@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:gauge="http://schemas.android.com/tools">
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/batterylay">
+        <eo.view.batterymeter.BatteryMeterView
+            android:layout_width="100dp"
+            android:layout_height="300dp"
+            android:padding="30dp"
+            android:layout_gravity="center"
+            app:batteryChargeLevel="80"
+            app:batteryChargingColor="#4caf50"
+            app:batteryColor="#0277bd"
+            app:batteryCriticalChargeLevel="15"
+            app:batteryCriticalColor="#d84315"
+            android:id="@+id/battery"
+            android:layout_marginBottom="100dp"
+            app:batteryIndicatorColor="@android:color/transparent"
+            app:batteryIsCharging="true"
+            app:batteryTheme="rounded"
+            app:batteryUnknownColor="#e0e0e0" />
+</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/custom">
+    <pl.pawelkleczkowski.customgauge.CustomGauge
+        android:id="@+id/gauge1"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:paddingHorizontal="70dp"
+        android:paddingTop="100dp"
+        app:gaugeEndValue="100"
+        app:gaugePointEndColor="@color/colorAccent"
+        app:gaugePointSize="6"
+        app:gaugePointStartColor="@color/colorPrimaryDark"
+        app:gaugeStartAngel="135"
+        app:gaugeStartValue="0"
+        app:gaugeStrokeCap="ROUND"
+        app:gaugeStrokeColor="#000"
+        app:gaugeStrokeWidth="10dp"
+        app:gaugeSweepAngel="270" />
+</LinearLayout>
+</ScrollView>
+
+
+
+</RelativeLayout>

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Battery Management System</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <style>
+  body {
+    font: 300 15px Lato, sans-serif;
+    line-height: 1.8;
+    color: #818181;
+     }
+    h2 {
+    font-size: 24px;
+    text-transform: uppercase;
+    color: #f2ee21;
+    font-weight: 600;
+    margin-bottom: 30px;
+  }
+  h3{
+  	font-size: 24px;
+    text-transform: uppercase;
+    color: #420233;
+    font-weight: 600;
+    margin-bottom: 30px;
+  }
+   
+  h4 {
+    font-size: 19px;
+    line-height: 1.375em;
+    color: #303030;
+    font-weight: 400;
+    margin-bottom: 30px;
+  }  
+
+ h5 {
+    font-size: 24px;
+    text-transform: uppercase;
+    color:#094c0e;
+    font-weight: 600;
+    margin-bottom: 30px;
+  }
+   
+   .modal-header{
+    background-color:;
+   }
+    .modal-body{
+    	background-color:red;
+    }
+   .modal-footer{
+    background-color:;
+   }
+  .jumbotron {
+  	  background-image: url(http://www.rambusblog.com/wp-content/uploads/2014/10/cyber-attacks-to-target-connected-vehicles.jpg);
+    -webkit-background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    -o-background-size: 100% 100%;
+    background-size: 100% 100%;
+    color:red;
+    padding: 250px 25px;
+
+  }
+  
+  .panel-footer .btn:hover {
+    border: 1px solid #f4511e;
+    background-color: #fff !important;
+    color: #f4511e;
+  }
+  .panel-heading {
+    color: #fff !important;
+    padding: 5px;
+    border-bottom: 1px solid transparent;
+   
+  }
+    .navbar {
+    margin-bottom: 0;
+    background-color:#2200ff;
+    z-index: 9999;
+    border: 0;
+    font-size: 12px !important;
+    letter-spacing: 4px;
+    font-family: Montserrat, sans-serif;
+  }
+  .navbar li a, .navbar .navbar-brand {
+    color: white !important;
+  }
+  .navbar-nav li a:hover, .navbar-nav li.active a {
+    color: yellow !important;
+    background-color: #05c619 !important;
+  }
+  .navbar-default .navbar-toggle {
+    border-color: transparent;
+    color: #fff !important;
+  }
+  footer .glyphicon {
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: yellow;
+    width: 100%;
+  }
+ 
+ .resp-container {
+    position: relative;
+   padding-top: 20%;
+   background-size: cover;
+}
+.resp-iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 65%;
+    height: 70%;
+    margin-left: auto;   /* Automatic margin from left */
+       margin-right: auto; 
+   
+}
+  
+  </style>
+</head>
+<body>
+	<!-- below Code for Navbar starts -->
+<div id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+<nav class="navbar navbar-default navbar-fixed-top">
+	<!-- Code for Modal starts -->
+	<div id="myModal" class="modal fade" role="dialog">
+	      <div class="modal-dialog">
+                <div class="modal-content">
+                     <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          <h4 class="modal-title">WELCOME TO THE BMS</h4>
+                     </div>
+                <div class="modal-body">
+                <p style="color:yellow">Dear User,</p><br>
+                <p style="color: yellow">Please Ensure that your IOT device is in <strong>"ON"</strong>state,Before preceding to the Website to get an accurate values.</p>
+            </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+        </div>
+      </div>
+    </div>
+</div>	
+
+
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#myPage">(+) BMS (-)<i class='fas fa-car-side' style='font-size:25px;color:yellow'></i></a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#kyb">KYB</a></li>
+        <li><a href="#bm">BATTERY MONITOR</a></li>
+       </ul>
+    </div>
+  </div>
+</nav>
+</div>
+<!-- above Code for Navbar ends -->
+<!-- Below Code for jumbtron starts -->
+
+<div class="jumbotron text-center">
+  <h1 style="text-shadow: 5px 5px 10px yellow,5px 5px 10px green">BATTERY &nbsp; MANAGEMENT &nbsp; SYSTEM<br>FOR &nbsp; VEHICLES</h1> 
+  <p></p> 
+  </div>
+<!-- Container (about Section) -->
+<div id="about" class="container-fluid" style="background-image: url(https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/bQ8NFje/an-extreme-closeup-of-a-blinking-check-battery-dashboard-light-on-an-dashboard-panel-background_hlidjvjwl_thumbnail-full01.png); padding: 60px 50px;">
+  <div class="row">
+    <div class="col-sm-8">
+      <h2>ABOUT &nbsp; BMS <img border="0" src="https://assets.iqpc.com/UploadedFiles/EventPage/23081.005/images/icon2.png" width="52" height="40"></h2>
+      <h4 class="text-justify" style="color: white;"><strong >"Battery is the most essential component in our vehicle".</strong> And many times a vehicle battery leaves a customer frustrated,when it doesn’t maintain its common parameters , So to Monitor such parameters a effiecient Battery Management System need to be implemented.</h4>
+      <p class="text-justify" style="color:#30edff"><i>So perfect maintenance of any battery is very much essential for it to function properly. Lead Acid batteries which are more commonly used in the vehicular batteries , need to be efficiently monitored, For which our Battery Management System plays a key role for helping customer to know about their battery and can lead a safe journey with a user friendly user interface.</i></p>
+      </div>
+    <div class="col-sm-4"><br>
+        <img class="img-responsive" src="https://i.pinimg.com/originals/1a/f4/8b/1af48b7e15ad76984739f4d87da10ded.jpg" alt="" height="30px" width="400">
+    </div>
+    <h2 class="text-left">- - - -> OUR &nbsp BMS &nbsp PROVIDES<- - - - </h2>
+    <div class="col-md-4">
+           <img class="img-responsive" src="https://www.klaasnotfound.com/assets/content/AndroidIcon.svg" alt="" style="width:50%">
+    </div>
+    <div class="col-md-4">
+       <img class="img-responsive" src="https://ifixhybrid.com/wp-content/uploads/2016/07/batteryicon.png" alt="" style="width:50%"> 
+    </div>
+    <div class="col-md-4">
+       <img class="img-responsive" src="https://cdn3.iconfinder.com/data/icons/web-and-mobile-colored-icons-vol-2/128/52-512.png" alt="" style="width:50%">
+    </div>
+    </div>
+     </div>
+     </div>
+</div>
+<!-- Container (kyb Section) -->
+<div id="kyb" class="container-fluid text-center"style="background-image: url(http://clipart-library.com/images/ATbrB7z5c.jpg); padding:80px 50px;">
+  <h3 class="text-center">KYB &nbsp; (KNOW YOUR BATTERY) &nbsp; <img border="0" src="https://image.flaticon.com/icons/png/128/887/887209.png" width="52" height="40"></h3>
+  <h4><strong>Note:</strong>The <strong> Battery </strong> has different parameters to judge its performance some of them mentioned as below.</h4>
+      <h5 style="color:#094c0e">BASIC &nbsp; BATTERY &nbsp; INFO</h5>
+    <table class="table">
+    <thead>
+      <tr class="bg-primary">
+        <th class="text-center">Battery</th>
+        <th class="text-center">Specifications</th>
+       </tr>
+    </thead>
+    <tbody>
+      <tr class="text-danger">
+        <td><b style="color: darkred">Company Name</b></td>
+        <td><b style="color: darkred">Amaron</b></td>
+     </tr>      
+      <tr class="success">
+        <td><b style="color: black">Capacity</b> </td>
+        <td><b style="color: black">12V 35Ah</b></td>
+      </tr>
+      <tr class="danger">
+        <td><b style="color: green">Battery Type</b></td>
+        <td><b style="color: green">Wet / Dry</b></td>
+      </tr>
+        </tbody>
+  </table>
+ <h3>PARAMETERS</h3>
+  <div class="panel-group" id="accordion">
+    <div class="panel panel-default">
+      <div class="panel-heading" style="background-color: #e866d6">
+        <h6 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Battery Temperature</a>
+        </h6>
+      </div>
+      <div id="collapse1" class="panel-collapse collapse in">
+        <div class="panel-body"><p class="text-justify" style="color:red">Since the operation of a battery is based on a chemical reaction, temperature plays an important role in performance.The ideal operating temperature for an automotive battery is 26.7 C (80 F). This is when the battery operates at maximum efficiency.Heat typically accelerates chemical activity, but higher temperatures also speed up internal corrosion within the cells and reduce the life of the battery. This is particularly true of batteries that repeatedly reach high internal temperatures, and once capacity has been damaged by heat, it can’t be restored.<br><strong>Batteries can freeze:</strong> A fully charged lead-acid battery can survive up to –50 C, but a battery with a low state of charge can freeze at –1 C. When the water in a battery freezes it expands and can cause irreparable damage to the cells.</p></div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading" style="background-color: #48d635">
+        <h6 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Battery Percentage</a>
+        </h6>
+      </div>
+      <div id="collapse2" class="panel-collapse collapse">
+        <div class="panel-body"><p class="text-justify" style="color:blue"> Battery charging and discharging rates are often discussed by referencing a "%" rate of current. The percentage rate is that which would theoretically says fully charged or discharged of the battery in usage basis.It plays a key role majorly in lead acid battery because if the percentage is not shown it might get die.So that user can get to know when he has to recharge.</p></div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading" style="background-color: #ed362d">
+        <h6 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Battery voltage</a>
+        </h6>
+      </div>
+      <div id="collapse3" class="panel-collapse collapse">
+        <div class="panel-body"><p class="text-justify" style="color:darkgreen">The term “voltage” in a battery refers to the difference in electric potential between the positive and negative terminals of a battery. A greater difference in potential results in a greater voltage.Electric potential means the difference in charge between two points--in this case, the two terminals of a battery. One is positively charged, and the other is negatively charged. A negative charge simply means that there is an excess of negatively charged particles, or electrons, on the terminal, while a positively charged terminal has a lack of those electrons. Physical separation of the two terminals prevents the electrons from traveling from the negatively charged terminal to the positively charged one. Once the two terminals are connected, via a circuit.</p></div>
+      </div>
+    </div>
+  </div> 
+</div>
+
+ <!-- Container (bm Section) -->
+ 
+ <div class="container-fluid" style="background-image:url(http://yastuvogear.com/wp-content/uploads/2017/03/cropped-bg.jpg
+); padding: 45px 65px;">
+  <div id="bm" class="resp-container" style="align-content: center;">
+   <div>
+    <iframe class="resp-iframe" src="http://13.232.24.83/2019_projects/Office/Battery_Status/main.php"  style="border:12px solid yellow;" width = "" height = "" frameborder="01"></iframe>
+    <div class="col-md-3">
+           <img class="img-responsive" class="img-rounded" src="http://icons.iconarchive.com/icons/graphicloads/100-flat/256/percentage-icon.png" alt="" style="width:50%">
+    </div>
+    <div class="col-md-3">
+           <img class="img-responsive" class="img-rounded" src="https://iconfree.net/uploads/icon/2018/5/16/energy-power-plug-icon-5223-512x512.png" alt="" style="width:50%">
+    </div>
+    <div class="col-md-3">
+           <img class="img-responsive" class="img-rounded" src="https://cdn0.iconfinder.com/data/icons/nature-1-7/52/7-512.png" alt="" style="width:50%">
+    </div>
+    <div class="col-md-3">
+    	<img class="img-responsive" class="img-rounded" src="http://www.rayovac.com/products/portable-power/educate/~/media/7EEED11615BD41C5A1A15B0127D7B37E.ashx" alt="" style="width:45%" "height:45%">
+    </div>
+    </div>
+</div>
+<div class="container-fluid">
+	<div class="row">
+   <marquee><p style="font-family: inherit; font-size: 18pt; color: yellow"><------------"Dear User, You take care of me i will make your journey safe" ! ------------></p></marquee>
+	</div>
+</div>
+<!-- Footer -->
+<footer class="container-fluid text-center" style="">
+  <a href="#myPage" title="To Top">
+  	 <div class="">
+    <span class="glyphicon glyphicon-chevron-up"></span>
+  </a><strong class="text-justify" style="color: white">Copyright © "BMS" All Rights Reserved</strong></div>
+</footer>
+<script>
+
+$(document).ready(function(){
+		$('.modal').modal('show');
+
+
+  // Add smooth scrolling to all links in navbar + footer link
+  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+      // Store hash
+      var hash = this.hash;
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 900, function(){
+   
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+    $(window).scroll(function() {
+    $(".slideanim").each(function(){
+      var pos = $(this).offset().top;
+
+      var winTop = $(window).scrollTop();
+        if (pos < winTop + 600) {
+          $(this).addClass("slide");
+        }
+    });
+  });
+});
+</script>
+</body>
+</html>
