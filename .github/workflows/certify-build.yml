@@ -1,0 +1,54 @@
+name: Test Certify Build Tag & Release
+on:
+    workflow_dispatch:
+
+permissions:
+    contents: write
+
+jobs:
+    certify-test:
+        name: Certify Build & Create Release Tag
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
+              with:
+                fetch-depth: 0
+                token: ${{ secrets.GH_PAT }}
+
+            - name: Get commit-SHA
+              id: commit
+              run: echo "sha=${GITHUB_SHA}" >> "GITHUB_OUTPUT"
+            - name: Build tag name
+              id: tag
+              run: |
+                git fetch --tags
+                BASE_TAG="IGLOO-PROD-RELEASE-$(date +%m%d%Y)"
+                TAG_NAME=$BASE_TAG
+                COUNTER=1
+                while git ls-remote --tags origin | grep -q "refs/tags/$TAG_NAME$"; do
+                    TAG_NAME="${BASE_TAG}-${COUNTER}"
+                    COUNTER=$((COUNTER + 1))
+                done
+                echo "name=$TAG_NAME" >> "$GITHUB_OUTPUT"
+                echo "Generated tag: $TAG_NAME"
+            - name: Create and push tag
+              run: |
+                git config user.name "github-actions[bot]"
+                git config user.email "actions[bot]@github.com"
+                git tag ${{ steps.tag.outputs.name }} ${{ steps.commit.outputs.sha }}
+                git push https://x-access-token:${{ secrets.GH_PAT }}@github.com/${{ github.repository }}.git ${{ steps.tag.outputs.name }}
+            - name: Create Github Release
+              run: |
+                gh release create ${{ steps.tag.outputs.name }} \
+                    --title "${{ steps.tag.outputs.name }}" \
+                    --generate-notes \
+                    --latest
+              env:
+                GH-TOKEN: ${{ secrets.GH_PAT }}
+            - name: Output Tag & Release URL
+              run: |
+                TAG_NAME=${{ steps.tag.outputs.name }}
+                RELEASE_URL="https://github.com/${GITHUB_REPOSITORY}/releases/tag/${TAG_NAME}"
+                echo "Tag created: $TAG_NAME"
+                echo "Release URL: $RELEASE_URL" 
