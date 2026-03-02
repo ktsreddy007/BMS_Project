@@ -45,7 +45,7 @@ jobs:
                     --generate-notes \
                     --latest
               env:
-                GH-TOKEN: ${{ secrets.GH_PAT }}
+                GH_TOKEN: ${{ secrets.GH_PAT }}
             - name: Output Tag & Release URL
               run: |
                 TAG_NAME=${{ steps.tag.outputs.name }}
